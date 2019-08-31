@@ -22,7 +22,6 @@ CREATE TABLE "alert_observation" (
 	"modified_date" DATE NOT NULL,
 	"is_active" BOOLEAN NOT NULL,
 	"alert_sub_category_id" bigint NOT NULL,
-	"risk_impact_id" bigint NOT NULL,
 	CONSTRAINT "alert_observation_pk" PRIMARY KEY ("alert_observation_id")
 ) WITH (
   OIDS=FALSE
@@ -149,8 +148,6 @@ CREATE TABLE "audit_details" (
 
 
 ALTER TABLE "alert_observation" ADD CONSTRAINT "alert_observation_fk0" FOREIGN KEY ("alert_sub_category_id") REFERENCES "alert_sub_category"("alert_sub_category_id");
-ALTER TABLE "alert_observation" ADD CONSTRAINT "alert_observation_fk1" FOREIGN KEY ("risk_impact_id") REFERENCES "risk_impact"("risk_impact_id");
-
 
 ALTER TABLE "alert_category_observation" ADD CONSTRAINT "alert_category_observation_fk0" FOREIGN KEY ("alert_category_id") REFERENCES "alert_category"("alert_category_id");
 ALTER TABLE "alert_category_observation" ADD CONSTRAINT "alert_category_observation_fk1" FOREIGN KEY ("alert_observation_id") REFERENCES "alert_observation"("alert_observation_id");
