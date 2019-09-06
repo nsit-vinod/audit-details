@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="division")
+@Table(name="branch")
 public class Branch extends Auditable<String> {
 
 	@Id

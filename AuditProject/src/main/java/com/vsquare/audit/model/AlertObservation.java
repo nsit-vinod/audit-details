@@ -1,5 +1,8 @@
 package com.vsquare.audit.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -7,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -31,6 +35,15 @@ public class AlertObservation extends Auditable<String> {
 	@Enumerated(EnumType.STRING)
 	@Column(name="risk_impact")
 	private RiskImpact riskImpact;
+	
+	
+	 @ManyToMany(fetch = FetchType.LAZY,
+	            cascade = {
+	                CascadeType.PERSIST,
+	                CascadeType.MERGE
+	            },
+	            mappedBy = "alertObservations")
+	private Set<AlertCategory> alertCategories;
 	
 	public long getAlertObservationId() {
 		return alertObservationId;

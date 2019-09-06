@@ -2,15 +2,17 @@ spring:
   application:
     name: vsquare-audit
   datasource:
-    url: jdbc:postgresql://localhost:5432/vsquare_audit  
-    username: root
-    password: 
+    url: jdbc:postgresql://localhost:5432/audit_details  
+    username: postgres_user
+    password: password
   jpa: 
+    show-sql: true
     properties:
       hibernate: 
         dialect: org.hibernate.dialect.PostgreSQLDialect
     hibernate: 
-      ddl-auto: update    
+      ddl-auto: update
+          
 server:
   port: 8181
   

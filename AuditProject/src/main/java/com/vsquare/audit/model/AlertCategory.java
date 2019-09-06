@@ -1,8 +1,15 @@
 package com.vsquare.audit.model;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,6 +26,16 @@ public class AlertCategory extends Auditable<String> {
 	@Column(name="is_active")
 	private boolean active;
 
+	@ManyToMany(fetch = FetchType.LAZY,
+            cascade = {
+                CascadeType.PERSIST,
+                CascadeType.MERGE
+            })
+    @JoinTable(name = "alert_category_observation",
+            joinColumns = { @JoinColumn(name = "alert_category_id") },
+            inverseJoinColumns = { @JoinColumn(name = "alert_observation_id") })
+	private Set<AlertObservation> alertObservations;
+	
 	public long getAlertCategoryId() {
 		return alertCategoryId;
 	}

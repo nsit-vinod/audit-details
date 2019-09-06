@@ -14,7 +14,7 @@ import javax.persistence.Table;
 public class Centre extends Auditable<String> {
 
 	@Id
-	@Column(name="division_id")
+	@Column(name="centre_id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int centreId;
 	
