@@ -9,9 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="division")
-public class Division extends Auditable<String> {
+public class Division extends Auditable<AuditUser> {
 
 
 	@Id

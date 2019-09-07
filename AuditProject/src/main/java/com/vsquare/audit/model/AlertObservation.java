@@ -14,9 +14,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="alert_observation")
-public class AlertObservation extends Auditable<String> {
+public class AlertObservation extends Auditable<AuditUser> {
 
 	@Id
 	@Column(name="alert_observation_id")
@@ -67,6 +69,30 @@ public class AlertObservation extends Auditable<String> {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public AlertSubCategory getAlertSubCategory() {
+		return alertSubCategory;
+	}
+
+	public void setAlertSubCategory(AlertSubCategory alertSubCategory) {
+		this.alertSubCategory = alertSubCategory;
+	}
+
+	public RiskImpact getRiskImpact() {
+		return riskImpact;
+	}
+
+	public void setRiskImpact(RiskImpact riskImpact) {
+		this.riskImpact = riskImpact;
+	}
+
+	public Set<AlertCategory> getAlertCategories() {
+		return alertCategories;
+	}
+
+	public void setAlertCategories(Set<AlertCategory> alertCategories) {
+		this.alertCategories = alertCategories;
 	}
 
 	@Override

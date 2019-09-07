@@ -5,9 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="alert_sub_category")
-public class AlertSubCategory extends Auditable<String> {
+public class AlertSubCategory extends Auditable<AuditUser> {
 
 	@Id
 	@Column(name="alert_sub_category_id")

@@ -5,6 +5,8 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 import java.util.Date;
 
 import javax.persistence.EntityListeners;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Temporal;
 
@@ -19,6 +21,8 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public abstract class Auditable<U> {
 
     @CreatedBy
+    @ManyToOne
+    @JoinColumn(name="created_by")
     protected U createdBy;
 
     @CreatedDate
@@ -26,6 +30,8 @@ public abstract class Auditable<U> {
     protected Date createdDate;
 
     @LastModifiedBy
+    @ManyToOne
+    @JoinColumn(name="last_modified_by")
     protected U lastModifiedBy;
 
     @LastModifiedDate

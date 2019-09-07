@@ -5,9 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="state")
-public class State extends Auditable<String>{
+public class State extends Auditable<AuditUser>{
 
 	@Id
 	@Column(name="state_id")

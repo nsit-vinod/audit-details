@@ -12,9 +12,11 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="alert_category")
-public class AlertCategory extends Auditable<String> {
+public class AlertCategory extends Auditable<AuditUser> {
 
 	@Id
 	@Column(name="alert_category_id")
@@ -58,5 +60,13 @@ public class AlertCategory extends Auditable<String> {
 
 	public void setActive(boolean active) {
 		this.active = active;
+	}
+
+	public Set<AlertObservation> getAlertObservations() {
+		return alertObservations;
+	}
+
+	public void setAlertObservations(Set<AlertObservation> alertObservations) {
+		this.alertObservations = alertObservations;
 	}
 }

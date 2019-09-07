@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.vsquare.audit.admin.model.AuditUser;
+
 @Entity
 @Table(name="audit_type")
-public class AuditType extends Auditable<String> {
+public class AuditType extends Auditable<AuditUser> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)

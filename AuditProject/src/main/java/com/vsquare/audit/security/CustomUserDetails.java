@@ -15,9 +15,10 @@ public class CustomUserDetails extends AuditUser implements UserDetails {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
+    private AuditUser auditUser;
 	public CustomUserDetails(final AuditUser users) {
         super(users);
+        this.auditUser = users;
     }
 
     @Override
@@ -58,5 +59,9 @@ public class CustomUserDetails extends AuditUser implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
+
+	public AuditUser getAuditUser() {
+		return auditUser;
+	}
 
 }
