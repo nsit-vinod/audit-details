@@ -10,4 +10,6 @@ public interface AuditUserRepository extends JpaRepository<AuditUser, Long> {
 
 	Optional<AuditUser> findByUserName(String username);
 
+	AuditUser findByEmailId(String emailId);
+
 }

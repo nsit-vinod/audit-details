@@ -40,7 +40,7 @@ public class AlertSubCategoryController {
 		return alertSubCategoryService.findAlertSubCategoryById(alertSubCategoryId);
 	}
 
-	@GetMapping(path=" /alert-sub-category")
+	@GetMapping(path=" /alert-sub-category", params = {"alertSubCategoryName"})
 	public AlertSubCategory findAlertSubCategoryByName(@RequestParam("alertSubCategoryName") String alertSubCategoryName) {
 		return alertSubCategoryService.findAlertSubCategoryByName(alertSubCategoryName);
 	}

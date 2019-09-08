@@ -19,6 +19,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.vsquare.audit.admin.model.AuditUser;
 import com.vsquare.audit.admin.model.AuditUser.AuditUserBuilder;
 import com.vsquare.audit.admin.model.Role;
+import com.vsquare.audit.admin.model.vo.UserVo;
 import com.vsquare.audit.admin.repository.RoleRepository;
 import com.vsquare.audit.admin.service.UserService;
 
@@ -42,7 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	public void globalUserDetails(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(auditUserDetailsService).passwordEncoder(encoder());
-		List<AuditUser> users = userService.findAllUsers();
+		List<UserVo> users = userService.findAllUsers();
 		
 		if(users.isEmpty()) {
 			Role role = roleRepository.findById(1).get();
