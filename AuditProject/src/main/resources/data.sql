@@ -1,1 +1,0 @@
-INSERT INTO 'role' ('role_id', 'role') VALUES (1,'SUPER_USER'),(2,'ADMIN');
