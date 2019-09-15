@@ -62,6 +62,7 @@ public class AuditUser {
 		this.emailId = auditUser.getEmailId();
 		this.userName = auditUser.getUserName();
 		this.address = auditUser.getAddress();
+		this.password = auditUser.getPassword();
 	}
 
 	public AuditUser(AuditUserBuilder auditUserBuilder) {

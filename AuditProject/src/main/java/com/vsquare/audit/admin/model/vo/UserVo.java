@@ -2,6 +2,7 @@ package com.vsquare.audit.admin.model.vo;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.vsquare.audit.admin.model.Role;
 
 public class UserVo {
@@ -84,6 +85,7 @@ public class UserVo {
 		return password;
 	}
 
+	@JsonIgnore
 	public void setPassword(String password) {
 		this.password = password;
 	}
